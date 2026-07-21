@@ -8,7 +8,7 @@
 
 
 
-LOCAL_PATH := device/infinix/X669
+LOCAL_PATH := device/infinix/X669D
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
