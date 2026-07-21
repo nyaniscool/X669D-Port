@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/infinix/X669
+DEVICE_PATH := device/infinix/X669D
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -38,7 +38,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 #TARGET_USES_UEFI := true
 # Assert
-TARGET_OTA_ASSERT_DEVICE := infinix-X669
+TARGET_OTA_ASSERT_DEVICE := infinix-X669D
 
 
 # Architecture
@@ -57,7 +57,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := infinix-X669
+TARGET_BOOTLOADER_BOARD_NAME := infinix-X669D
 TARGET_NO_BOOTLOADER := true
 
 # Display
