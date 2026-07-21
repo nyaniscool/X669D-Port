@@ -9,22 +9,22 @@ DEVICE_PATH := device/infinix/X669D
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
-
 # A/B
+# A/B support
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    vbmeta \
-    vbmeta_system \
-    vbmeta_vendor \
-    dtbo \
     boot \
+    dtbo \
     system \
-    system_ext \
-    vendor \
     product \
-    vendor_dlkm
-
-
+    vendor \
+    odm \
+    odm_dlkm \
+    vbmeta \
+    vendor_boot \
+    vendor_dlkm \
+    vbmeta_system \
+    vbmeta_vendor
 
 #vendor_boot configuration
 TARGET_NO_RECOVERY := true
@@ -36,10 +36,11 @@ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_RAMDISK_USE_LZ4 := true
 
-#TARGET_USES_UEFI := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := infinix-X669D
 
+# System as root
+BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -110,9 +111,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# System as root
-BOARD_SUPPRESS_SECURE_ERASE := true
-
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_VBMETA_SYSTEM := system system_ext product vendor
@@ -133,15 +131,14 @@ TARGET_BOARD_PLATFORM := ums9230
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /dev/block/loop%d
 TARGET_USES_MKE2FS := true
-
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
@@ -167,7 +164,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/soc:ap-ahb/31100000.dsi/31100000.dsi.0/display/panel0/sprd_backlight/brightness"
-TW_MAX_BRIGHTNESS := 2047
+TW_MAX_BRIGHTNESS := 4095
 #TW_VIBRATION_PATH := 
 #TW_CUSTOM_VIBRATION_PATH :=
 TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone0/temp
@@ -175,7 +172,7 @@ TW_DEFAULT_BRIGHTNESS := 1200
 
 
 #MAINTENER
-TW_DEVICE_VERSION := Infinix_X669-Massatrio16
+TW_DEVICE_VERSION := Infinix_X669D-Nyan
 
 # INCLUDE TWRP CONFIG
 TW_INCLUDE_REPACKTOOLS := true
